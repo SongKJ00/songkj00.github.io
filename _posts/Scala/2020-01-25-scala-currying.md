@@ -30,9 +30,9 @@ tags:
 
 ~~~scala
 def sum(f: Int => Int, a: Int, b: Int) = {
-	def loop(a: Int, acc: Int): Int =
-		if (a > b) acc
-		else loop(a+1, f(a) + acc)
+  def loop(a: Int, acc: Int): Int =
+    if (a > b) acc
+    else loop(a+1, f(a) + acc)
   loop(a, 0)
 }
 ~~~
@@ -57,9 +57,9 @@ scala에서는 함수를 리턴하는 함수를 정의할 수 있어서 sumInts�
 
 ~~~scala
 def sum(f: Int => Int): (Int, Int) => Int = {
-	def sumF(a: Int, b: Int): Int = 
-		if (a > b) 0
-		else f(a) + sumF(a+1, b)
+  def sumF(a: Int, b: Int): Int = 
+    if (a > b) 0
+    else f(a) + sumF(a+1, b)
   sumF
 }
 ~~~
@@ -85,7 +85,7 @@ sum 함수를 아래와 같이 변경해보겠습니다.
 
 ~~~scala
 def sum(f: Int => Int)(a: Int, b: Int): Int = 
-	if (a > b) 0 else f(a) + sum(f)(a+1, b)
+  if (a > b) 0 else f(a) + sum(f)(a+1, b)
 ~~~
 
 sum 함수가 위와 같이 바뀌었다면, sumCubes 함수는 아래와 같이 바꿀 수 있습니다.
@@ -110,8 +110,8 @@ product 함수(특정 범위 내에 있는 수들의 곱셈 구하기)
 
 ~~~scala
 def product(f: Int => Int)(a: Int, b: Int): Int = 
-	if (a > b) 1
-	else f(a) * product(f)(a+1, b)
+  if (a > b) 1
+  else f(a) * product(f)(a+1, b)
 product(x => x*x)(3, 4)
 ~~~
 
@@ -129,13 +129,17 @@ product(x => x*x)(3, 4)
 
 sum과 product를 일반화해줄 새로운 함수 mapReduce를 아래와 같이 정의해보겠습니다.
 
-~~~ scala
+
+
+~~~scala
 // combine: 사칙연산 식(sum이면 덧셈, product면 곱셈)
 // zero: 항등원
 def mapReduce(f: Int => Int, combine: (Int, Int) => Int, zero: Int)(a: Int, b: Int): Int = 
-	if (a > b) zero
-	else combine(f(a), mapReduce(f, combine, zero)(a+1, b))
+  if (a > b) zero
+  else combine(f(a), mapReduce(f, combine, zero)(a+1, b))
 ~~~
+
+
 
 위와 같은 함수가 갖춰져 있다면 product 함수는 아래와 같이 재정의할 수 있습니다.
 
