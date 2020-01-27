@@ -18,7 +18,7 @@ tags:
 
 ### Example - 유리수(Rational Numbers)
 
-유리수 $$ x \over y$$는 두 개의 정수 분자(numerator) $$x$$ 와 분모(denominator) $$y$$ 로 표현됩니다.
+유리수 `x/y`는 두 개의 정수 분자(numerator) `x` 와 분모(denominator) `y` 로 표현됩니다.
 
 두 개의 유리수의 덧셈을 구현한다면 아래와 같은 두 함수가 필요할 것입니다.
 
