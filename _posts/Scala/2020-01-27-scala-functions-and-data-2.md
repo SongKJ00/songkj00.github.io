@@ -11,7 +11,7 @@ tags:
 
 ---
 
-[이전 글](./2020-01-27-scala-functions-and-data.md)에 이어서 작성하는 글입니다.
+[이전 글](https://songkj00.github.io/scala-functions-and-data/)에 이어서 작성하는 글입니다.
 
 ### dry principle
 
