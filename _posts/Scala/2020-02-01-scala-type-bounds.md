@@ -100,9 +100,13 @@ def assertAllPos[S <: IntSet](r: S): S = ...
 그러나 여기서 type bounds 개념을 추가한 이유는 type parameter의 범위를 제한할 수 있기 때문이라고 생각합니다.
 
 A
+
 &uarr;
+
 B
+
 &uarr;
+
 C
 
 위와 같은 상속 구조에서 우리는 어떤 함수의 type paramter로 A와 B만 와야 하거나, C만 와야 하거나, 혹은 A와 B와 C만 오고 다른 user defined class로 만들어진 object는 피해야 할 경우가 있을 것입니다.
