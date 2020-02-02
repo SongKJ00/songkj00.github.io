@@ -205,7 +205,7 @@ trait Expr {
 
 그렇다면 pattern matching이 필요한 이유 / 이점이 무엇일까요?
 
-자바와 비교해본다면 첫번째로, 추상(기본) 클래스에 새로운 메소드들이 생겨날 때마다, 모든 서브 클래스의 body에 이를 정의해줘야 하는 작업을 덜 수 있습니다.
+자바와 비교해본다면 **첫번째로, 추상(기본) 클래스에 새로운 메소드들이 생겨날 때마다, 모든 서브 클래스의 body에 이를 정의해줘야 하는 작업을 덜 수 있습니다.**
 
 scala에서는 기본 trait인 `Expr`에 있는 eval 메소드에 각 서브 클래스별 expression을 정의할 수 있습니다.
 
@@ -213,3 +213,12 @@ scala에서는 기본 trait인 `Expr`에 있는 eval 메소드에 각 서브 클
 
 모든 서브 클래스들이 한 파일에 있다면 그나마 상황이 낫겠지만, 만약 여러 파일에 있다면 매번 그 파일들을 찾아가 일일이 `eval` 메소드를 정의해줘야 할 것입니다.
 
+**두번째로, type test 작업을 깔끔하게 할 수 있습니다.**
+
+자바에서는 서브 클래스 타입으로 캐스팅할 때, type-cast exception을 방지하기 위해 `isInstance`와 같은 함수로 이 인스턴스가 내가 원하던 타입의 인스턴스인지 한 번 확인해주는 if statement가 필요합니다.
+
+그러나 scala에서는 pattern matching을 통해 마치 switch 구문을 쓰듯이 이를 구현할 수 있습니다.
+
+java에서 만약 type test를 할 서브 클래스가 10개라면 `isInstance` 함수로 if-else if statement를 10개 작성해주고 또 각 statement 안에 type cast하는 코드까지 넣어주어야 합니다.
+
+그러나 scala에서는 단지 pattern과 pattern에 해당하는 expression만 쭉 나열해주면 되므로 좀 더 간단하게 코드를 작성할 수 있지 않을까 싶습니다.
